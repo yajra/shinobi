@@ -177,7 +177,7 @@ trait ShinobiTrait
 	/**
 	 * Check if user has at least one of the given roles
 	 *
-	 * @param  array   $roles
+	 * @param  array   $role
 	 * @return boolean
 	 */
 	public function hasRoleAtLeast(array $role)
