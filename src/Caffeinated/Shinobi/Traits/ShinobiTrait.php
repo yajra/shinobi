@@ -163,6 +163,33 @@ trait ShinobiTrait
 		return $can;
 	}
 
+	/**
+	 * Check if a user has role
+	 *
+	 * @param  string  $role
+	 * @return boolean
+	 */
+	public function hasRole($role)
+	{
+		return $this->hasRoleAtLeast([$role]);
+	}
+
+	/**
+	 * Check if user has at least one of the given roles
+	 *
+	 * @param  array   $roles
+	 * @return boolean
+	 */
+	public function hasRoleAtLeast(array $role)
+	{
+		$roles = $this->getRoles();
+
+		$intersection       = array_intersect($roles, $role);
+		$intersectionCount  = count($intersection);
+
+		return ($intersectionCount > 0) ? true : false;
+	}
+
 	/*
 	|----------------------------------------------------------------------
 	| Magic Methods
